@@ -27,9 +27,9 @@ const Footer: React.FC = () => {
         </div>
       ) : (
         // その他ページ用フッター
-        <div className="py-12">
-          <div className="text-center mb-8">
-            <p className="text-hero-title mb-6">境界を超え、物語を彩る。</p>
+        <div className="my-6">
+          <div className="text-center mb-4">
+            <p className="text-hero-title mb-4">境界を超え、物語を彩る。</p>
             <div className="flex gap-4 justify-center">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <img src={xTwitter} alt="X" className="w-12 h-12" />
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="text-center pt-8">
+          <div className="text-center">
             <p className="text-small">
               Copyright © 2026 Utsuwa　All Rights Reserved
             </p>
