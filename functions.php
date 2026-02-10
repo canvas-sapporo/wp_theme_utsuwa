@@ -1,9 +1,9 @@
 <?php
 function my_ts_theme_enqueue_assets() {
-    // ビルド時に生成された依存関係ファイルを読み込む
     $asset_file_path = get_template_directory() . '/build/index.asset.php';
     
     if ( ! file_exists( $asset_file_path ) ) {
+        error_log( 'Asset file not found: ' . $asset_file_path );
         return;
     }
 
@@ -19,11 +19,13 @@ function my_ts_theme_enqueue_assets() {
     );
 
     // CSSの読み込み
-    wp_enqueue_style(
-        'my-react-style',
-        get_template_directory_uri() . '/build/index.css',
-        [],
-        $asset_file['version']
-    );
+    if ( file_exists( get_template_directory() . '/build/index.css' ) ) {
+        wp_enqueue_style(
+            'my-react-style',
+            get_template_directory_uri() . '/build/index.css',
+            [],
+            $asset_file['version']
+        );
+    }
 }
-add_action('wp_enqueue_scripts', 'my_ts_theme_enqueue_assets');
+add_action( 'wp_enqueue_scripts', 'my_ts_theme_enqueue_assets' );

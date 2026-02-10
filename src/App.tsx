@@ -1,13 +1,35 @@
-import React, { FC } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Art from './pages/Art';
+import Company from './pages/Company';
+import News from './pages/News';
+import Pricing from './pages/Pricing';
+import Contact from './pages/Contact';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
-const App: FC = () => {
+const App: React.FC = () => {
   return (
-    <div className="p-10 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold text-blue-600">
-        WP + React(TS) + Tailwind v4
-      </h1>
-      <p className="mt-4 text-gray-700">最新の公式ツール構成です。</p>
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/art" element={<Art />} />
+            <Route path="/company" element={<Company />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
