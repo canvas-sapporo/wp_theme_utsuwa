@@ -13,7 +13,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-light">
         <Header />
         <main className="flex-grow">
           <Routes>

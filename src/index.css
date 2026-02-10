@@ -1,4 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Montserrat:wght@700&family=Noto+Serif+JP:wght@200..900&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  /* フォントファミリーの設定 */
+  --font-sans: "M PLUS 1p", system-ui, sans-serif;
+  --font-serif: "Noto Serif JP", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+
+  /* カラーの設定 */
+  --color-light: #EEF2F5;
+  --color-dark: #000000;
+}
+
+@layer components {
+  .text-logo {
+    font-family: var(--font-montserrat);
+    font-size: 36px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+  .text-hero-title {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+  .text-section-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+  .text-sub-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+  .text-body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .text-small-text {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .text-emphasis {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 700;
+  }
+  .text-cta {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+}
 
 @source "./**/*.{ts,tsx}";
 @source "../**/*.php";
