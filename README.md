@@ -1,4 +1,8 @@
-# my-ts-react-theme
+# WordPress テーマ Utsuwa
+<img width="864" height="566" alt="image" src="https://github.com/user-attachments/assets/f363c195-3a51-4b07-b13c-dd9a96cdacd0" />
+
+
+## 技術スタック
 
 WordPress テーマ内で React + TypeScript + Tailwind CSS v4 を使用するためのモダンな開発テンプレートです。
 
