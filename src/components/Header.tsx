@@ -1,5 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/logo.svg';
+import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -7,46 +7,37 @@ const Header: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-light h-20">
+    <header className="w-full min-w-0 bg-light h-20 z-20">
       <nav className="container mx-auto my-5 flex items-center justify-between gap-8">
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="Utsuwa Logo" className="h-10" />
           <span className="text-logo font-bold">Utsuwa</span>
         </Link>
         <div className="flex gap-8 text-cta">
-          <Link 
-            to="/" 
-            className={isActive('/') ? 'underline' : ''}
-          >
+          <Link to="/" className={isActive("/") ? "underline" : ""}>
             Home
           </Link>
-          <Link 
-            to="/art" 
-            className={isActive('/art') ? 'underline' : ''}
-          >
+          <Link to="/art" className={isActive("/art") ? "underline" : ""}>
             Art
           </Link>
-          <Link 
-            to="/company" 
-            className={isActive('/company') ? 'underline' : ''}
+          <Link
+            to="/company"
+            className={isActive("/company") ? "underline" : ""}
           >
             Company
           </Link>
-          <Link 
-            to="/news" 
-            className={isActive('/news') ? 'underline' : ''}
-          >
+          <Link to="/news" className={isActive("/news") ? "underline" : ""}>
             News
           </Link>
-          <Link 
-            to="/pricing" 
-            className={isActive('/pricing') ? 'underline' : ''}
+          <Link
+            to="/pricing"
+            className={isActive("/pricing") ? "underline" : ""}
           >
             Pricing
           </Link>
-          <Link 
-            to="/contact" 
-            className={isActive('/contact') ? 'underline' : ''}
+          <Link
+            to="/contact"
+            className={isActive("/contact") ? "underline" : ""}
           >
             Contact
           </Link>
