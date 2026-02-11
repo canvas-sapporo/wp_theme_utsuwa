@@ -113,8 +113,14 @@ const Background: React.FC = () => {
       const layer = activeLayerRef.current;
       layer0.style.backgroundImage = `url(${CHARACTER_IMAGES[cur]})`;
       layer1.style.backgroundImage = `url(${CHARACTER_IMAGES[cur]})`;
-      gsap.set(layer0, { opacity: layer === 0 ? 0.7 : 0 });
-      gsap.set(layer1, { opacity: layer === 1 ? 0.7 : 0 });
+      gsap.set(layer0, { opacity: 0 });
+      gsap.set(layer1, { opacity: 0 });
+      const visibleLayer = layer === 0 ? layer0 : layer1;
+      gsap.to(visibleLayer, {
+        opacity: 0.7,
+        duration: FADE_DURATION,
+        ease: "power2.inOut",
+      });
     };
 
     requestAnimationFrame(initLayers);
