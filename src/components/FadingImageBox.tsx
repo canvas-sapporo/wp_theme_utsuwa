@@ -85,7 +85,7 @@ const FadingImageBox: React.FC = () => {
   }, []);
 
   return (
-    <div className="col-span-6 aspect-square relative overflow-hidden rounded-lg">
+    <div className="w-full aspect-square relative overflow-hidden rounded-lg">
       <div
         ref={layer0Ref}
         className="absolute inset-0 bg-cover bg-center transition-none"
