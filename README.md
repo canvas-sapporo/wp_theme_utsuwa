@@ -1,5 +1,7 @@
 # WordPress テーマ Utsuwa
-<img width="864" height="566" alt="image" src="https://github.com/user-attachments/assets/f363c195-3a51-4b07-b13c-dd9a96cdacd0" />
+<img width="720" height="778" alt="image" src="https://github.com/user-attachments/assets/b194c0d6-6574-46ff-8d36-94ce4c946501" />
+
+<img width="215" height="1286" alt="image" src="https://github.com/user-attachments/assets/aeb95a04-23d7-417f-b2a4-2d2988d2b490" />
 
 
 ## 技術スタック
