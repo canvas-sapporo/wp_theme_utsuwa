@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Montserrat:wght@700&family=Noto+Serif+JP:wght@200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Montserrat:wght@700&family=Noto+Serif+JP:wght@200..900&display=swap");
 
 @import "tailwindcss";
 
@@ -19,8 +19,13 @@ body,
   --font-montserrat: "Montserrat", sans-serif;
 
   /* カラーの設定 */
-  --color-light: #EEF2F5;
+  --color-light: #eef2f5;
   --color-dark: #000000;
+
+  /* カスタムシャドウの定義 */
+  /* 指定形式：[X軸] [Y軸] [ぼかし] [広がり] [色] */
+  --shadow-custom: 0 16px 32px 0 rgba(40, 50, 70, 0.2),
+    0 8px 16px 0 rgba(40, 50, 70, 0.3), 0 1px 2px 0 rgba(40, 50, 70, 0.5);
 }
 
 /* ローダー用アニメーション */
@@ -64,7 +69,8 @@ body,
     animation: loader-ring 1.1s cubic-bezier(0.5, 0.15, 0.5, 0.85) infinite;
   }
   .loader-ring-reverse {
-    animation: loader-ring-reverse 0.9s cubic-bezier(0.5, 0.15, 0.5, 0.85) infinite;
+    animation: loader-ring-reverse 0.9s cubic-bezier(0.5, 0.15, 0.5, 0.85)
+      infinite;
   }
   .loader-pulse {
     animation: loader-pulse 1.2s ease-in-out infinite;

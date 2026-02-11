@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import {
   CHARACTER_IMAGES,
@@ -8,11 +7,7 @@ import {
   getRandomIndex,
 } from "../data/characterImages";
 
-const Background: React.FC = () => {
-  const location = useLocation();
-  const path = location.pathname;
-  const showCharacter = path !== "/" && path !== "/art";
-
+const FadingImageBox: React.FC = () => {
   const initialIndex = useRef(
     Math.floor(Math.random() * CHARACTER_IMAGES.length),
   ).current;
@@ -26,9 +21,9 @@ const Background: React.FC = () => {
   currentIndexRef.current = currentIndex;
   activeLayerRef.current = activeLayer;
 
-  useEffect(() => {
-    if (!showCharacter) return;
+  const opacityVisible = 1;
 
+  useEffect(() => {
     const initLayers = () => {
       const layer0 = layer0Ref.current;
       const layer1 = layer1Ref.current;
@@ -41,7 +36,7 @@ const Background: React.FC = () => {
       gsap.set(layer1, { opacity: 0 });
       const visibleLayer = layer === 0 ? layer0 : layer1;
       gsap.to(visibleLayer, {
-        opacity: 0.7,
+        opacity: opacityVisible,
         duration: FADE_DURATION,
         ease: "power2.inOut",
       });
@@ -72,7 +67,7 @@ const Background: React.FC = () => {
         incoming,
         { opacity: 0 },
         {
-          opacity: 0.7,
+          opacity: opacityVisible,
           duration: FADE_DURATION,
           ease: "power2.inOut",
           onComplete: () => {
@@ -87,25 +82,20 @@ const Background: React.FC = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [showCharacter]);
-
-  if (!showCharacter) return null;
+  }, []);
 
   return (
-    <div
-      className="fixed left-0 right-0 md:left-auto top-20 bottom-0 w-full md:w-[50%] md:right-0 z-0 pointer-events-none"
-      aria-hidden="true"
-    >
+    <div className="col-span-6 aspect-square relative overflow-hidden rounded-lg">
       <div
         ref={layer0Ref}
-        className="absolute inset-0 bg-cover bg-center md:bg-right transition-none"
+        className="absolute inset-0 bg-cover bg-center transition-none"
       />
       <div
         ref={layer1Ref}
-        className="absolute inset-0 bg-cover bg-center md:bg-right transition-none"
+        className="absolute inset-0 bg-cover bg-center transition-none"
       />
     </div>
   );
 };
 
-export default Background;
+export default FadingImageBox;
