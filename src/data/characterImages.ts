@@ -38,6 +38,17 @@ export const CHARACTER_IMAGES = [
   c31, c32, c33,
 ];
 
+export const ILLUSTRATOR_NAMES = [
+  'Aoi Kisaragi',
+  'Rina Mikage',
+  'Haru Shizuku',
+  'Mio Kanzaki',
+  'Sora Minazuki',
+] as const;
+
+export const getIllustratorName = (imageIndex: number): string =>
+  ILLUSTRATOR_NAMES[imageIndex % ILLUSTRATOR_NAMES.length];
+
 export const INTERVAL_MS = 6000;
 export const FADE_DURATION = 3;
 
