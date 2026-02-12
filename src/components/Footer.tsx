@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
                 Terms and Conditions
               </a>
               {" | "}
-              <a href="/privacy" className="hover:underline">
+              <a href="/privacy-policy" className="hover:underline">
                 Privacy Policy
               </a>
             </p>
