@@ -2,16 +2,14 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import mapImage from '../assets/map.png';
+import logo from '../assets/logo.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CardTab: React.FC<{
-  icon: React.ReactNode;
-  title: string;
-}> = ({ icon, title }) => (
-  <div className="flex items-center gap-2 bg-gray-700 text-white px-4 py-3 rounded-t-xl">
-    <span className="w-5 h-5 flex items-center justify-center shrink-0">{icon}</span>
-    <span className="font-semibold">{title}</span>
+const CardHeader: React.FC<{ title: string }> = ({ title }) => (
+  <div className="flex items-center gap-3 mb-4">
+    <img src={logo} alt="" className="w-12 h-auto shrink-0" width={48} />
+    <h2 className="text-sub-title font-serif text-text">{title}</h2>
   </div>
 );
 
@@ -49,17 +47,10 @@ const Company: React.FC = () => {
 
       <div ref={cardsRef} className="flex flex-col gap-8 max-w-3xl mx-auto">
         {/* Message */}
-        <article className="rounded-xl overflow-hidden shadow-custom bg-light">
-          <CardTab
-            icon={
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                <path d="M7 10l5 5 5-5z" />
-              </svg>
-            }
-            title="Message"
-          />
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
           <div className="p-6 md:p-8">
-            <h2 className="text-sub-title font-serif text-text mb-4">境界を超え、物語を彩る。</h2>
+            <CardHeader title="Message" />
+            <h3 className="text-sub-title font-serif text-text mb-4">境界を超え、物語を彩る。</h3>
             <p className="text-body text-text mb-4">
               私たちUtsuwaは、特定のスタイルに固執することはありません。描くのは、単なる外見の創作ではなく、そのキャラクターが歩んできた背景、そしてこれから始まる物語を創りだすための「器」です。
             </p>
@@ -70,17 +61,9 @@ const Company: React.FC = () => {
         </article>
 
         {/* History */}
-        <article className="rounded-xl overflow-hidden shadow-custom bg-light">
-          <CardTab
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
-              </svg>
-            }
-            title="History"
-          />
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
           <div className="p-6 md:p-8">
+            <CardHeader title="History" />
             <ul className="space-y-3 text-body text-text">
               <li><strong>2020年04月</strong> クリエイティブユニット「Utsuwa」として活動を開始。</li>
               <li><strong>2021年10月</strong> インディーゲームタイトルのメインキャラクターデザインを担当。</li>
@@ -95,16 +78,9 @@ const Company: React.FC = () => {
         </article>
 
         {/* Overview */}
-        <article className="rounded-xl overflow-hidden shadow-custom bg-light">
-          <CardTab
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-              </svg>
-            }
-            title="Overview"
-          />
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
           <div className="p-6 md:p-8">
+            <CardHeader title="Overview" />
             <dl className="space-y-2 text-body text-text">
               <div><dt className="font-bold inline">商号</dt><dd className="inline"> 株式会社Utsuwa</dd></div>
               <div><dt className="font-bold inline">設立</dt><dd className="inline"> 2022年1月1日</dd></div>
@@ -116,17 +92,9 @@ const Company: React.FC = () => {
         </article>
 
         {/* Access */}
-        <article className="rounded-xl overflow-hidden shadow-custom bg-light">
-          <CardTab
-            icon={
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-            }
-            title="Access"
-          />
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
           <div className="p-6 md:p-8 space-y-6">
+            <CardHeader title="Access" />
             <div>
               <h3 className="font-bold text-text mb-1">所在地</h3>
               <p className="text-body text-text">〒150-0001 東京都渋谷区神宮前5-32-10 Creative Arch 4F</p>
