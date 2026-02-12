@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const plans = [
   {
+    planId: 'standard' as const,
     price: '¥50,000~',
     name: 'スタンダードプラン',
     features: [
@@ -18,6 +19,7 @@ const plans = [
     ],
   },
   {
+    planId: 'business' as const,
     price: '¥120,000~',
     name: 'ビジネスプラン',
     features: [
@@ -29,6 +31,7 @@ const plans = [
     ],
   },
   {
+    planId: 'full-order' as const,
     price: '都度お見積り',
     name: 'フルオーダープラン',
     features: [
@@ -88,7 +91,7 @@ const Pricing: React.FC = () => {
               </p>
               <p className="text-sub-title font-serif text-text mb-6 text-center">{plan.name}</p>
               <Link
-                to="/contact"
+                to={`/contact?plan=${plan.planId}`}
                 className="inline-flex items-center justify-center w-full bg-dark text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity"
               >
                 Contact
