@@ -47,7 +47,7 @@ const Company: React.FC = () => {
 
       <div ref={cardsRef} className="flex flex-col gap-8 max-w-3xl mx-auto">
         {/* Message */}
-        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 backdrop-blur-lg overflow-hidden">
           <div className="p-6 md:p-8">
             <CardHeader title="Message" />
             <h3 className="text-sub-title font-serif text-text mb-4">境界を超え、物語を彩る。</h3>
@@ -61,7 +61,7 @@ const Company: React.FC = () => {
         </article>
 
         {/* History */}
-        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 backdrop-blur-lg overflow-hidden">
           <div className="p-6 md:p-8">
             <CardHeader title="History" />
             <ul className="space-y-3 text-body text-text">
@@ -78,7 +78,7 @@ const Company: React.FC = () => {
         </article>
 
         {/* Overview */}
-        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 backdrop-blur-lg overflow-hidden">
           <div className="p-6 md:p-8">
             <CardHeader title="Overview" />
             <dl className="space-y-2 text-body text-text">
@@ -92,7 +92,7 @@ const Company: React.FC = () => {
         </article>
 
         {/* Access */}
-        <article className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden">
+        <article className="rounded-xl border border-white shadow-custom bg-light/75 backdrop-blur-lg overflow-hidden">
           <div className="p-6 md:p-8 space-y-6">
             <CardHeader title="Access" />
             <div>

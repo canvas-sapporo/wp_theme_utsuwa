@@ -69,7 +69,7 @@ const News: React.FC = () => {
         {newsItems.map((item, i) => (
           <article
             key={i}
-            className="rounded-xl border border-white shadow-custom bg-light/75 overflow-hidden"
+            className="rounded-xl border border-white shadow-custom bg-light/75 backdrop-blur-lg overflow-hidden"
           >
             <div className="p-6 md:p-8">
               <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-6 mb-4">
