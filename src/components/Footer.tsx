@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
               Copyright © {currentYear} Utsuwa　All Rights Reserved
             </p>
             <p className="text-small">
-              <a href="/terms" className="hover:underline">
+              <a href="/terms-and-conditions" className="hover:underline">
                 Terms and Conditions
               </a>
               {" | "}
