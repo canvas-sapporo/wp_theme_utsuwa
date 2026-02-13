@@ -9,6 +9,7 @@
 - **WordPress**: テーマ開発
 - **Tailwind CSS**: ユーティリティファーストのCSSフレームワーク
 - **React.js**
+- **GSAP**
 
 # 本番環境
 
