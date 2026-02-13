@@ -6,11 +6,21 @@
 
 ## 技術スタック
 
-WordPress テーマ内で React + TypeScript + Tailwind CSS v4 を使用するためのモダンな開発テンプレートです。
+- **WordPress**: テーマ開発
+- **Tailwind CSS**: ユーティリティファーストのCSSフレームワーク
+- **React.js**
 
 ## 🚀 クイックスタート
 
-まずは依存関係をインストールします。
+### 必要な環境
+
+- Node.js (v20以上推奨)
+- npm
+- WordPress環境（Local by Flywheel、MAMP、XAMPPなど）
+
+### パッケージインストール
+
+パッケージをインストールします。
 
 ```bash
 npm install
