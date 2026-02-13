@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import FadingImageBox from "../components/FadingImageBox";
 import logo from "../assets/logo.svg";
 import { snsData } from "../data/snsData";
+import { FADE_DURATION } from "../data/characterImages";
 
 const Home: React.FC = () => {
+  const heroTitleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const el = heroTitleRef.current;
+    if (!el) return;
+    gsap.fromTo(
+      el,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: FADE_DURATION,
+        ease: "power2.inOut",
+      }
+    );
+  }, []);
+
   return (
     <div className="container mx-auto my-6 md:my-12 px-4 md:px-0">
       <div className="grid grid-cols-12 gap-x-4 gap-y-6 md:gap-y-8">
         {/* スマホ: 画面幅の正方形内で中央寄せ / PC: テキストと画像を横並び */}
         <div className="col-span-12 md:col-span-6 w-full aspect-square md:aspect-auto flex items-center justify-center md:min-h-0">
-          <h1 className="text-hero-title text-center px-4">
+          <h1
+            ref={heroTitleRef}
+            className="text-hero-title text-center px-4"
+            style={{ opacity: 0 }}
+          >
             境界を越え、
             <br />
             物語を彩る。

@@ -22,8 +22,11 @@ type ModalState = { src: string; illustratorName: string } | null;
 type ModalPhase = 'entering' | 'visible' | 'exiting';
 
 const MODAL_FADE_MS = 300;
+const TITLE = "Art";
 
 const Art: React.FC = () => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const underlineRef = useRef<HTMLSpanElement>(null);
   const shuffledItems = useMemo(
     () =>
       shuffle(
@@ -46,6 +49,27 @@ const Art: React.FC = () => {
       document.body.style.overflow = '';
     };
   }, [modal]);
+
+  useEffect(() => {
+    const title = titleRef.current;
+    const underline = underlineRef.current;
+    if (!title) return;
+    const chars = gsap.utils.toArray<HTMLElement>(title.querySelectorAll('span[data-char]'));
+    gsap.set(chars, { opacity: 0, y: 16 });
+    gsap.set(underline, { scaleX: 0 });
+    const tl = gsap.timeline();
+    tl.to(chars, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      stagger: 0.06,
+      ease: 'power2.out',
+    }).to(
+      underline,
+      { scaleX: 1, duration: 0.5, ease: 'power2.out', transformOrigin: 'left' },
+      '-=0.15'
+    );
+  }, []);
 
   useEffect(() => {
     if (!modal) return;
@@ -108,7 +132,26 @@ const Art: React.FC = () => {
 
   return (
     <div className="container mx-auto my-12 px-4 md:px-0">
-      <h1 className="text-section-title font-serif mb-9 text-center">Art</h1>
+      <div className="mb-9 flex justify-center">
+        <div className="inline-block text-center">
+          <h1
+            ref={titleRef}
+            className="text-section-title font-serif text-text"
+          >
+            {TITLE.split('').map((char, i) => (
+              <span key={i} data-char className="inline-block">
+                {char}
+              </span>
+            ))}
+          </h1>
+          <span
+            ref={underlineRef}
+            className="mt-2 block h-0.5 w-full bg-dark origin-left"
+            style={{ transform: 'scaleX(0)' }}
+            aria-hidden
+          />
+        </div>
+      </div>
       <div
         ref={gridRef}
         className="grid grid-cols-2 md:grid-cols-4 gap-4 w-fit mx-auto"
