@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logo from '../assets/logo.svg';
@@ -36,9 +37,23 @@ const newsItems = [
 const TITLE = "News";
 
 const News: React.FC = () => {
+  const location = useLocation();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const underlineRef = useRef<HTMLSpanElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (!hash || !hash.startsWith('#item-')) return;
+    const id = hash.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      const timer = setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const title = titleRef.current;
@@ -113,6 +128,7 @@ const News: React.FC = () => {
         {newsItems.map((item, i) => (
           <article
             key={i}
+            id={`item-${i}`}
             className="rounded-xl border border-white shadow-custom bg-light/75 backdrop-blur-lg overflow-hidden"
           >
             <div className="p-6 md:p-8">

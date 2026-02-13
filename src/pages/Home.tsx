@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import FadingImageBox from "../components/FadingImageBox";
 import logo from "../assets/logo.svg";
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
         opacity: 1,
         duration: FADE_DURATION,
         ease: "power2.inOut",
-      }
+      },
     );
   }, []);
 
@@ -48,8 +49,11 @@ const Home: React.FC = () => {
           </h2>
 
           <div className="flex flex-col gap-4 md:gap-6">
-            {/* カード 1 */}
-            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6 p-5 md:p-8 border border-gray-200 rounded-xl shadow-custom bg-light">
+            {/* カード 1 → News 1件目 */}
+            <Link
+              to="/news#item-0"
+              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6 p-5 md:p-8 border border-gray-200 rounded-xl shadow-custom bg-light transition-shadow hover:shadow-lg"
+            >
               <img
                 src={logo}
                 alt="Utsuwa Logo"
@@ -63,10 +67,13 @@ const Home: React.FC = () => {
                   2026.02.05
                 </div>
               </div>
-            </div>
+            </Link>
 
-            {/* カード 2 */}
-            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6 p-5 md:p-8 border border-gray-200 rounded-xl shadow-custom bg-light">
+            {/* カード 2 → News 2件目 */}
+            <Link
+              to="/news#item-1"
+              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6 p-5 md:p-8 border border-gray-200 rounded-xl shadow-custom bg-light transition-shadow hover:shadow-lg"
+            >
               <img
                 src={logo}
                 alt="Utsuwa Logo"
@@ -80,10 +87,13 @@ const Home: React.FC = () => {
                   2026.01.20
                 </div>
               </div>
-            </div>
+            </Link>
 
-            {/* カード 3 */}
-            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6 p-5 md:p-8 border border-gray-200 rounded-xl shadow-custom bg-light">
+            {/* カード 3 → News 3件目 */}
+            <Link
+              to="/news#item-2"
+              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6 p-5 md:p-8 border border-gray-200 rounded-xl shadow-custom bg-light transition-shadow hover:shadow-lg"
+            >
               <img
                 src={logo}
                 alt="Utsuwa Logo"
@@ -97,7 +107,7 @@ const Home: React.FC = () => {
                   2026.01.01
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </section>
 
@@ -113,7 +123,7 @@ const Home: React.FC = () => {
                 href={sns.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center p-5 md:p-6 border border-gray-200 rounded-xl shadow-custom bg-light"
+                className="flex flex-col items-center justify-center p-5 md:p-6 border border-gray-200 rounded-xl shadow-custom bg-light hover:shadow-lg"
               >
                 <img src={sns.icon} alt={sns.name} className="w-10 h-10 mb-3" />
                 <span className="text-small-text font-bold text-text">

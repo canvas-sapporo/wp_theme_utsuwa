@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import mapImage from "../assets/map.png";
 import logo from "../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -218,7 +219,11 @@ const Company: React.FC = () => {
             <div>
               <h3 className="font-bold text-text mb-1">備考</h3>
               <p className="text-body text-text">
-                お問い合わせは完全予約制となっております。ご来社の際は、お問い合わせフォーム（Contact）よりご連絡ください。
+                お問い合わせは完全予約制となっております。ご来社の際は、お問い合わせフォーム（
+                <Link to="/contact" className="underline hover:opacity-80">
+                  Contact
+                </Link>
+                ）よりご連絡ください。
               </p>
             </div>
           </div>

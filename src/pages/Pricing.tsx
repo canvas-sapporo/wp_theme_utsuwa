@@ -1,45 +1,45 @@
-import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import checkIcon from '../assets/circle-check-regular-full.svg';
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import checkIcon from "../assets/circle-check-regular-full.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const plans = [
   {
-    planId: 'standard' as const,
-    price: '¥50,000~',
-    name: 'スタンダードプラン',
+    planId: "standard" as const,
+    price: "¥50,000~",
+    name: "スタンダードプラン",
     features: [
-      'キャラクター基本設計（全身立ち絵1枚）',
-      '表情差分（3種：喜・怒・哀）',
-      '簡易三面図',
-      '個人活動、SNS用アイコン、物語のサブキャラクターなど。',
+      "キャラクター基本設計（全身立ち絵1枚）",
+      "表情差分（3種：喜・怒・哀）",
+      "簡易三面図",
+      "個人活動、SNS用アイコン、物語のサブキャラクターなど。",
     ],
   },
   {
-    planId: 'business' as const,
-    price: '¥120,000~',
-    name: 'ビジネスプラン',
+    planId: "business" as const,
+    price: "¥120,000~",
+    name: "ビジネスプラン",
     features: [
-      '高精細キャラクターデザイン（全身立ち絵）',
-      '詳細な設定資料（三面図、衣装細部、持ち物デザイン）',
-      '表情差分（5種）',
-      '著作権譲渡（または商用利用ライセンス）',
-      'ゲームメインキャラクター、VTuberモデル原画、出版物など。',
+      "高精細キャラクターデザイン（全身立ち絵）",
+      "詳細な設定資料（三面図、衣装細部、持ち物デザイン）",
+      "表情差分（5種）",
+      "著作権譲渡（または商用利用ライセンス）",
+      "ゲームメインキャラクター、VTuberモデル原画、出版物など。",
     ],
   },
   {
-    planId: 'full-order' as const,
-    price: '都度お見積り',
-    name: 'フルオーダープラン',
+    planId: "full-order" as const,
+    price: "都度お見積り",
+    name: "フルオーダープラン",
     features: [
-      'メインキャラクター（複数体）',
-      '世界観設定に基づいたキービジュアル制作',
-      'ロゴデザイン または背景設定の提案',
-      '専任担当によるディレクション',
-      '新規IP開発、アニメーションプロジェクト、企業ブランディングなど。',
+      "メインキャラクター（複数体）",
+      "世界観設定に基づいたキービジュアル制作",
+      "ロゴデザイン または背景設定の提案",
+      "専任担当によるディレクション",
+      "新規IP開発、アニメーションプロジェクト、企業ブランディングなど。",
     ],
   },
 ];
@@ -55,7 +55,9 @@ const Pricing: React.FC = () => {
     const title = titleRef.current;
     const underline = underlineRef.current;
     if (!title) return;
-    const chars = gsap.utils.toArray<HTMLElement>(title.querySelectorAll("span[data-char]"));
+    const chars = gsap.utils.toArray<HTMLElement>(
+      title.querySelectorAll("span[data-char]"),
+    );
     gsap.set(chars, { opacity: 0, y: 16 });
     gsap.set(underline, { scaleX: 0 });
     const tl = gsap.timeline();
@@ -68,7 +70,7 @@ const Pricing: React.FC = () => {
     }).to(
       underline,
       { scaleX: 1, duration: 0.5, ease: "power2.out", transformOrigin: "left" },
-      "-=0.15"
+      "-=0.15",
     );
   }, []);
 
@@ -86,8 +88,8 @@ const Pricing: React.FC = () => {
         opacity: 1,
         y: 0,
         duration: 0.6,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%' },
+        ease: "power2.out",
+        scrollTrigger: { trigger: el, start: "top 88%" },
       });
       if (anim.scrollTrigger) triggers.push(anim.scrollTrigger);
     });
@@ -133,10 +135,12 @@ const Pricing: React.FC = () => {
               <p className="text-section-title font-serif text-text mb-1 text-center">
                 {plan.price}
               </p>
-              <p className="text-sub-title font-serif text-text mb-6 text-center">{plan.name}</p>
+              <p className="text-sub-title font-serif text-text mb-6 text-center">
+                {plan.name}
+              </p>
               <Link
                 to={`/contact?plan=${plan.planId}`}
-                className="inline-flex items-center justify-center w-full bg-dark text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center w-full bg-dark text-white py-3 px-6 rounded-lg font-semibold hover:opacity-75 transition-opacity"
               >
                 Contact
               </Link>
@@ -145,7 +149,10 @@ const Pricing: React.FC = () => {
             <div className="p-6 md:p-8 bg-white/75 backdrop-blur-lg flex-1 min-h-0">
               <ul className="space-y-3">
                 {plan.features.map((feature, j) => (
-                  <li key={j} className="flex items-start gap-2 text-body text-text">
+                  <li
+                    key={j}
+                    className="flex items-start gap-2 text-body text-text"
+                  >
                     <img
                       src={checkIcon}
                       alt=""
