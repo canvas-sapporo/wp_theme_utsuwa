@@ -10,7 +10,12 @@
 - **Tailwind CSS**: ユーティリティファーストのCSSフレームワーク
 - **React.js**
 
-## 🚀 クイックスタート
+# 本番環境
+
+1. wp_theme_utsuwaフォルダをWordPressのapp\public\wp-content\themes配下に設置する。
+2. WordPressの管理者画面（ブラウザ）から「外観 > テーマ」で「Utsuwa」テーマを有効化する。
+
+# 開発環境
 
 ### 必要な環境
 
@@ -57,6 +62,14 @@ npm install
 ### WordPress との連携
 PHP 側で定義したデータを React へ渡す場合は、`functions.php` 内で `wp_localize_script` を使用してください。
 
+## 本番環境
+
+~本番環境では、ビルドされたCSSファイルを使用するように `functions.php` を修正する必要があります。~
+
+`npm run dev` を実行していない場合は、ビルドされたファイル（buildフォルダ配下）を使用するように
+
+`functions.php` を修正しました。
+
 ## 構築手順
 
 ```bash
@@ -65,3 +78,11 @@ npm install @wordpress/scripts --save-dev
 npm install react@18 react-dom@18 @types/react@18 @types/react-dom@18 typescript --legacy-peer-deps
 npm install tailwindcss @tailwindcss/postcss postcss autoprefixer --legacy-peer-deps
 ```
+
+## ライセンス
+
+MIT License
+
+## 作者
+
+canvas-sapporo
