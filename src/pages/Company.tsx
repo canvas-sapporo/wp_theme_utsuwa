@@ -202,13 +202,15 @@ const Company: React.FC = () => {
                 <li>JR山手線「原宿駅」東口より徒歩約10分</li>
               </ul>
             </div>
-            <div className="rounded-lg overflow-hidden border border-gray-200">
-              <img
-                src={mapImage}
-                alt="アクセスマップ"
-                className="w-full h-auto"
-              />
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16491.402745188552!2d141.3378124153244!3d43.056248513690285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b29002e819be1%3A0xf2b7843666b23f0f!2z5bCx5Yq057aZ57aaQeWei-S6i-alreaJgOOBguOCi-OCgeOCiuOBgg!5e0!3m2!1sja!2sjp!4v1771292589541!5m2!1sja!2sjp"
+              width={700}
+              height={400}
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
             <div>
               <h3 className="font-bold text-text mb-1">周辺のご案内</h3>
               <p className="text-body text-text">
