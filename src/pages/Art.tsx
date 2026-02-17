@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -178,46 +179,51 @@ const Art: React.FC = () => {
         ))}
       </div>
 
-      {modal && (
-        <div
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300 ${
-            modalPhase === 'visible' ? 'opacity-100' : 'opacity-0'
-          }`}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-          onClick={closeModal}
-        >
-          <button
-            type="button"
-            className="absolute top-4 left-4 z-10 w-10 h-10 flex items-center justify-center text-white hover:opacity-80 transition-opacity"
-            onClick={closeModal}
-            aria-label="閉じる"
-          >
-            <img src={xmarkIcon} alt="" className="w-6 h-6" />
-          </button>
+      {modal &&
+        createPortal(
           <div
-            className={`relative bg-light rounded-lg shadow-xl max-w-lg w-full max-h-[90vh] flex flex-col overflow-hidden transition-opacity duration-300 ${
+            className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300 ${
               modalPhase === 'visible' ? 'opacity-100' : 'opacity-0'
             }`}
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            onClick={closeModal}
           >
-            <div className="flex-1 min-h-0 flex items-center justify-center p-6">
-              <img
-                src={modal.src}
-                alt=""
-                className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
-              />
-            </div>
-            <p
-              id="modal-title"
-              className="text-center text-text/80 font-serif py-4 px-6 border-t border-gray-200"
+            <button
+              type="button"
+              className="absolute top-4 left-4 z-10 w-10 h-10 flex items-center justify-center text-white hover:opacity-80 transition-opacity"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeModal();
+              }}
+              aria-label="閉じる"
             >
-              Illustrated by {modal.illustratorName}
-            </p>
-          </div>
-        </div>
-      )}
+              <img src={xmarkIcon} alt="" className="w-6 h-6" />
+            </button>
+            <div
+              className={`relative bg-light rounded-lg shadow-xl max-w-lg w-full max-h-[90vh] flex flex-col overflow-hidden transition-opacity duration-300 ${
+                modalPhase === 'visible' ? 'opacity-100' : 'opacity-0'
+              }`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex-1 min-h-0 flex items-center justify-center p-6">
+                <img
+                  src={modal.src}
+                  alt=""
+                  className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
+                />
+              </div>
+              <p
+                id="modal-title"
+                className="text-center text-text/80 font-serif py-4 px-6 border-t border-gray-200"
+              >
+                Illustrated by {modal.illustratorName}
+              </p>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };
